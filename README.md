@@ -9,17 +9,14 @@ upgrade to 13.0.14-ce.0 --> 13.1.11-ce.0 --> 13.8.8-ce.0 --> 13.12.15-ce.0
 upgrade to 14.0.12-ce.0 --> 14.4.2-ce.0
 ```
 
-### Backup Gitlab to S3
+### Backup Gitlab local host
 ```bash
-/opt/tools/gitlab/docker_compose/backup_gitlab.sh <gitlab_container_name> <gitlab_s3_bucket>
+   docker exec -t <container-name> gitlab-rake gitlab:backup:create
+   docker cp <container-name>:/var/opt/gitlab/backups/1636708049_2021_11_12_14.4.2_gitlab_backup.tar .
+   docker cp ec2-user_web_1:/etc/gitlab/gitlab-secrets.json .
 ```
 
-### Restore Gitlab from S3
-
-```bash
-   aws s3 cp s3://<s3-bucket>/path/to/backup/file .
-   docker cp <gitlab-backup-file> dockercontainer:/<backup-location>
-```
+### Restore Gitlab from local host
 
 ```bash
     # Stop the processes that are connected to the database
