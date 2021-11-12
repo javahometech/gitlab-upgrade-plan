@@ -1,5 +1,8 @@
 # GitLab Upgrade Plan
 ### Upgradation path, upgrading gitlab from 12.8.1-ce.0
+
+https://raaaimund.github.io/tech/2018/10/04/backup-and-restore-gitlab-on-docker/
+
 ```
 upgrade to 12.10.14-ce.0
 upgrade to 13.0.14-ce.0 --> 13.1.11-ce.0 --> 13.8.8-ce.0 --> 13.12.15-ce.0
