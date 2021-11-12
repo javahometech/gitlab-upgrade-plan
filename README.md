@@ -28,7 +28,9 @@ upgrade to 14.0.12-ce.0 --> 14.4.2-ce.0
 
     # Run the restore. NOTE: "_gitlab_backup.tar" is omitted from the name
     docker exec -it <name of container> gitlab-backup restore BACKUP=11493107454_2018_04_25_10.6.4-ce
-
+   
+    docker cp gitlab-secrets.json ec2-user_web_1:/etc/gitlab/gitlab-secrets.json
+    
     # Restart the GitLab container
     docker restart <name of container>
 
